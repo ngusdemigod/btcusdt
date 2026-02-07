@@ -1,6 +1,8 @@
-## BTCUSDT Futures Bot (4H Regime Switch)
+# BTCUSDT Futures Bot (4H Regime Switch)
 
-### Setup
+Trades BTC/USDT futures in a simple, rules-based way.
+
+## Setup
 1) Create venv:
    python -m venv .venv
    .venv\Scripts\activate  (Windows)
@@ -13,7 +15,7 @@
    - In bot_config.yaml set mode: paper
    python main.py
 
-### Live mode (ONLY if you understand futures risk)
+## Live mode (ONLY if you understand futures risk)
 1) Create .env in the same folder:
    BINANCE_API_KEY=your_key
    BINANCE_API_SECRET=your_secret
@@ -24,7 +26,7 @@
 3) Run:
    python main.py
 
-### What it does
+## What it does
 - Uses 4H candles.
 - Detects TREND vs RANGE.
 - Trades trend with EMA + ATR trailing stop.
