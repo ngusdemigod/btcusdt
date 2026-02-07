@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.pickle
+*.egg-info/
+*.egg
+*.whl
+build/
+dist/
+.venv/
+venv/
+
+# Logs / state
+state.json
+backtest_report.json
+
+# Env
+.env
+
+# OS
+.DS_Store
+Thumbs.db

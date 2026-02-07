@@ -1,0 +1,215 @@
+:root {
+    --bg-dark: #050505;
+    --text-white: #ffffff;
+    --accent-green: #2aff8c; /* Neon/Bright Green */
+    --accent-green-dim: #0a4d2e;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --font-main: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    font-family: var(--font-main);
+    color: var(--text-white);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.app-container {
+    width: 100%;
+    height: 100%;
+    max-width: 414px; /* Mobile width container */
+    max-height: 896px;
+    background: var(--bg-dark);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    z-index: 1;
+    /* In a real browser view we might want to let it fill screen, 
+       but keeping max-width helps simulate app on desktop */
+}
+
+/* Background Effects */
+.bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.orb-1 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--accent-green) 0%, transparent 70%);
+    top: 30%;
+    right: -20%;
+    opacity: 0.4;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--accent-green-dim) 0%, transparent 70%);
+    bottom: -10%;
+    left: -20%;
+    opacity: 0.5;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    margin-bottom: 40px;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Main Content */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-text {
+    font-size: 56px;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.text-line {
+    display: block;
+}
+
+.highlight {
+    color: var(--accent-green);
+    font-weight: 600;
+}
+
+.description {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+    max-width: 80%;
+    margin-bottom: 30px;
+}
+
+/* Pagination Dots */
+.pagination-dots {
+    display: flex;
+    gap: 8px;
+    margin-top: auto; /* Push to bottom of content area */
+    padding-bottom: 40px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    width: 24px;
+    background-color: var(--text-white);
+    border-radius: 4px;
+}
+
+/* Footer & Button */
+.footer {
+    padding-bottom: 30px;
+}
+
+.start-btn {
+    width: 100%;
+    height: 80px;
+    border-radius: 40px; /* Pillow shape */
+    border: none;
+    background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px 0 32px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button faint gradient overlay to match design "glow" */
+.start-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(90deg, rgba(42, 255, 140, 0.1), transparent);
+    z-index: 0;
+    border-radius: 40px;
+}
+
+.start-btn:active {
+    transform: scale(0.98);
+}
+
+.start-btn span {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-white);
+    z-index: 1;
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.icon-circle svg {
+    stroke: var(--text-white);
+    transition: transform 0.3s ease;
+}
+
+.start-btn:hover .icon-circle svg {
+    transform: translate(2px, -2px);
+}
+
+@media (min-width: 480px) {
+    /* Presentation mode for desktop view */
+    .app-container {
+        border-radius: 40px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        height: 800px;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+}
